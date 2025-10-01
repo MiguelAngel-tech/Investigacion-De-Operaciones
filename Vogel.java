@@ -7,9 +7,10 @@ public class Vogel{
         byte ofert = lec.nextByte();
         int [] ofertas = new ofertas[ofert];
         for(int i=0; i<ofert; i++){
-            ofertas [i] = new ofertas;
-            System.put.printl("Ingrese la oferta "+ (i+1));
+            ofertas [i] = 0;
+            System.put.println("Ingrese la oferta "+ (i+1));
             ofertas[i] = lec.nextInt();
         }
+        
     }
 }
