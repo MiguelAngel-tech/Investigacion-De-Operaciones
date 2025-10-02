@@ -12,6 +12,7 @@ public class Vogel{
             ofertas[i] = lec.nextInt();
         }
         System.out.println("Ingrese la cantidad de demandas: ")
+        byte demand = lec.nextByte();
         int [] demandas = new demandas[demand];
     }
 }
