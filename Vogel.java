@@ -35,11 +35,20 @@ public class Vogel{
         }
         System.out.println("\n \n \t \tImpresion de la matriz de costos");
         //impresion de la matriz de costos
-        System.out.println("Matriz de costos: ");
-        for(int i=0; i<ofert; i++){
-            for(int j=0; j<demand; j++){
-                System.out.print(costos[i][j]);
+            // Imprimir encabezados de columna (ofertas)
+            System.out.print("      ");
+            for(int j = 0; j < ofert; j++) {
+                System.out.printf("%d   ", ofertas[j]);
             }
-        }        
+            System.out.println();
+
+            // Imprimir cada fila con la demanda y los costos
+            for(int i = 0; i < demand; i++) {
+                System.out.printf("D %d | ", demandas[i]);
+                for(int j = 0; j < ofert; j++) {
+                    System.out.printf("%-4d ", costos[j][i]);
+                }
+                System.out.println();
+            }
     }
 }
