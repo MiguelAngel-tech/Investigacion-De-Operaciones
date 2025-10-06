@@ -79,5 +79,30 @@ public class Simples{
         System.out.println("\n=== TABLA INICIAL SIMPLEX ===");
         imprimirTabla();
     }
-    
+    //se crea el metodo resolver
+    public void resolver(){
+        System.out.println("\n=== INICIO DEL MÉTODO SIMPLEX ===");
+        int iteracion = 0;
+        while (!esOptimo()) {
+            iteracion++;
+            System.out.printf("\n--- Iteración %d ---\n", iteracion);
+            int columnaPivote = encontrarColumnaPivote();
+            if (columnaPivote == -1) {
+                System.out.println("Solución óptima encontrada!");
+                break;
+            }
+            int filaPivote = encontrarFilaPivote(columnaPivote);
+            if (filaPivote == -1) {
+                System.out.println("El problema es no acotado!");
+                return;
+            }
+            System.out.printf("Variable entrante: %s\n", nombresVariables[columnaPivote]);
+            System.out.printf("Variable saliente: %s\n", nombresVariables[variablesBasicas[filaPivote]]);
+            System.out.printf("Elemento pivote: %.4f\n", tabla[filaPivote][columnaPivote]);
+            realizarPivoteo(filaPivote, columnaPivote);
+            variablesBasicas[filaPivote] = columnaPivote;
+            imprimirTabla();
+        }
+        mostrarSolucion();
+    }
 }
