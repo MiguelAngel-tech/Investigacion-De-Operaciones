@@ -183,4 +183,27 @@ public class Simples{
             }
         }
     }
+    //imprimir la tabla
+    private void imprimirTabla(){
+        // Encabezado
+        System.out.print("\nBase\t");
+        for (int j = 0; j < numVariablesTotales; j++) {
+            System.out.printf("%s\t", nombresVariables[j]);
+        }
+        System.out.println("LD");
+        // Filas de restricciones
+        for (int i = 0; i < numRestricciones; i++) {
+            System.out.printf("%s\t", nombresVariables[variablesBasicas[i]]);
+            for (int j = 0; j <= numVariablesTotales; j++) {
+                System.out.printf("%.4f\t", tabla[i][j]);
+            }
+            System.out.println();
+        }
+        // Fila Z
+        System.out.print("Z\t");
+        for (int j = 0; j <= numVariablesTotales; j++) {
+            System.out.printf("%.4f\t", tabla[numRestricciones][j]);
+        }
+        System.out.println();
+    }
 }
