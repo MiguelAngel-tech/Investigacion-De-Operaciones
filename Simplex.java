@@ -166,4 +166,21 @@ public class Simples{
         }
         return filaPivote;
     }
+    //realizar las operaciones correspondientes
+    private void realizarPivoteo(int filaPivote, int columnaPivote){
+        double elementoPivote = tabla[filaPivote][columnaPivote];
+        // Normalizar la fila pivote
+        for (int j = 0; j <= numVariablesTotales; j++) {
+            tabla[filaPivote][j] /= elementoPivote;
+        }
+        // Actualizar las demás filas
+        for (int i = 0; i <= numRestricciones; i++) {
+            if (i != filaPivote) {
+                double factor = tabla[i][columnaPivote];
+                for (int j = 0; j <= numVariablesTotales; j++) {
+                    tabla[i][j] -= factor * tabla[filaPivote][j];
+                }
+            }
+        }
+    }
 }
