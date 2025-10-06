@@ -23,4 +23,21 @@ public class Simples{
         simplex.resolver();
         simplex.close();
     }
+    public Simplex(int numVariables, int numRestricciones, boolean esMaximizacion){
+        this.numVariables = numVariables;
+        this.numRestricciones = numRestricciones;
+        this.esMaximizacion = esMaximizacion;
+        this.numVariablesTotales = numVariables + numRestricciones; 
+        this.variablesBasicas = new int[numRestricciones];
+        this.nombresVariables = new String[numVariablesTotales];
+        //Iniciar nombre de variables
+        for(int i=0; i<numVariables; i++){
+            nombresVariables[i] = "x " + (i+1);
+        }
+        for(int i=0; i<numRestricciones; i++){
+            nombresVariables[numVariables + i] = "s" + (i+1);
+        }
+        // Inicializar tabla simplex
+        tabla = new double[numRestricciones + 1][numVariablesTotales + 1];
+    }
 }
