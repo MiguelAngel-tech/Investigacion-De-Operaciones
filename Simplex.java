@@ -206,4 +206,27 @@ public class Simples{
         }
         System.out.println();
     }
+    //mostrar la solucion
+    private void mostrarSolucion(){
+        System.out.println("\n=== SOLUCIÓN ÓPTIMA ===");
+        // Valores de las variables
+        double[] valores = new double[numVariablesTotales];
+        for (int i = 0; i < numRestricciones; i++) {
+            valores[variablesBasicas[i]] = tabla[i][numVariablesTotales];
+        }
+        System.out.println("Valores de las variables:");
+        for (int i = 0; i < numVariablesTotales; i++) {
+            System.out.printf("%s = %.4f\n", nombresVariables[i], valores[i]);
+        } 
+        // Valor óptimo de Z
+        double valorZ = tabla[numRestricciones][numVariablesTotales];
+        System.out.printf("\nValor óptimo de Z = %.4f\n", valorZ);
+        // Mostrar función objetivo óptima
+        System.out.println("\nFunciÓn objetivo óptima:");
+        if (esMaximizacion) {
+            System.out.printf("Z = %.4f", valorZ);
+        } else {
+            System.out.printf("Z = %.4f", -valorZ);
+        }
+    }
 }
