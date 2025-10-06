@@ -105,4 +105,23 @@ public class Simples{
         }
         mostrarSolucion();
     }
+    //se verifica si es optimo
+    private boolean esOptimo(){
+         if (esMaximizacion) {
+            // Maximización: todos los coeficientes en Z deben ser ≥ 0
+            for (int j = 0; j < numVariablesTotales; j++) {
+                if (tabla[numRestricciones][j] < -0.0001) {
+                    return false;
+                }
+            }
+        } else {
+            // Minimización: todos los coeficientes en Z deben ser ≤ 0
+            for (int j = 0; j < numVariablesTotales; j++) {
+                if (tabla[numRestricciones][j] > 0.0001) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
