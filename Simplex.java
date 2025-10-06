@@ -151,4 +151,19 @@ public class Simples{
             return columna;
         }
     }
+    //encontrar la fila pivote
+    private int encontrarFilaPivote(int columnaPivote){
+        int filaPivote = -1;
+        double minRatio = Double.MAX_VALUE;
+        for (int i = 0; i < numRestricciones; i++) {
+            if (tabla[i][columnaPivote] > 0.0001) {
+                double ratio = tabla[i][numVariablesTotales] / tabla[i][columnaPivote];
+                if (ratio >= 0 && ratio < minRatio) {
+                    minRatio = ratio;
+                    filaPivote = i;
+                }
+            }
+        }
+        return filaPivote;
+    }
 }
