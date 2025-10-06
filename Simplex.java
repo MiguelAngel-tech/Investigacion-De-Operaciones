@@ -40,4 +40,44 @@ public class Simples{
         // Inicializar tabla simplex
         tabla = new double[numRestricciones + 1][numVariablesTotales + 1];
     }
+    //se crea el metodo para ingresar los datos
+    public void ingresaDatos(Scanner sacnner){
+        System.out.println("\n=== INGRESO DE LA FUNCIÓN OBJETIVO ===");
+        System.out.println("Ingrese los coeficientes de la función objetivo:");
+        // Ingresar coeficientes de la función objetivo para variables de decisión
+        for (int j = 0; j < numVariables; j++) {
+            System.out.printf("Coeficiente de x%d: ", j + 1);
+            double coeficiente = scanner.nextDouble();
+            if (esMaximizacion) {
+                tabla[numRestricciones][j] = -coeficiente; // Maximización: Z positiva, demás negativos
+            } else {
+                tabla[numRestricciones][j] = coeficiente; // Minimización: Z negativa, demás positivos
+            }
+        }
+        // Coeficientes de las variables de holgura en la función objetivo = 1
+        for (int j = numVariables; j < numVariablesTotales; j++) {
+            tabla[numRestricciones][j] = 1.0;
+        }
+        System.out.println("\n=== INGRESO DE RESTRICCIONES ===");
+        for (int i = 0; i < numRestricciones; i++) {
+            System.out.printf("\n--- Restricción %d ---\n", i + 1);
+            // Coeficientes de las variables de decisión
+            for (int j = 0; j < numVariables; j++) {
+                System.out.printf("Coeficiente de x%d: ", j + 1);
+                tabla[i][j] = scanner.nextDouble();
+            }
+            // Coeficientes de las variables de holgura
+            for (int j = numVariables; j < numVariablesTotales; j++) {
+                tabla[i][j] = (j == numVariables + i) ? 1.0 : 0.0;
+            }
+            // Lado derecho (LD)
+            System.out.print("Lado derecho (LD) de la restricción: ");
+            tabla[i][numVariablesTotales] = scanner.nextDouble();
+            variablesBasicas[i] = numVariables + i; // Variable de holgura básica inicial
+        }
+        // Mostrar tabla inicial
+        System.out.println("\n=== TABLA INICIAL SIMPLEX ===");
+        imprimirTabla();
+    }
+    
 }
