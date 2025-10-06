@@ -9,6 +9,18 @@ public class Simples{
     private int variablesBasicas; 
     private String [] nombresVariables;
     public static void main(String []args){
-        Scanner lec = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== MÉTODO SIMPLEX ===");// Titulo
+        System.out.println("¿Es maximización (1) o minimización (2)?: ");//Seleccion de operacion a realizar
+        int tipo = scanner.nextInt();
+        boolean esMaximizacion = (tipo == 1);
+        System.out.println("Número de variables de decisión (x1, x2, ...): ");//Numero de varaibles
+        int numVariables = scanner.nextInt();
+        System.out.println("Numero de restricciones: ");//cantidad de restricciones
+        int numRestricciones = scanner.nextInt();
+        Simplex simplex = new Simplex(numVariables, numRestricciones, esMaximizacion);
+        simplex.ingresaDatos(scanner);
+        simplex.resolver();
+        simplex.close();
     }
 }
