@@ -9,6 +9,7 @@ public class Simples{
     private int variablesBasicas; 
     private String [] nombresVariables;
     public static void main(String []args){
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("=== MÉTODO SIMPLEX ===");// Titulo
         System.out.println("¿Es maximización (1) o minimización (2)?: ");//Seleccion de operacion a realizar
@@ -123,5 +124,31 @@ public class Simples{
             }
         }
         return true;
+    }
+    //se encuentra la columna pivote
+    private int encontrarColumnaPivote(){
+        if (esMaximizacion) {
+            // Maximización: buscar el valor más negativo en Z
+            double minValor = 0;
+            int columna = -1;
+            for (int j = 0; j < numVariablesTotales; j++) {
+                if (tabla[numRestricciones][j] < minValor) {
+                    minValor = tabla[numRestricciones][j];
+                    columna = j;
+                }
+            }
+            return columna;
+        } else {
+            // Minimización: buscar el valor más positivo en Z
+            double maxValor = 0;
+            int columna = -1;
+            for (int j = 0; j < numVariablesTotales; j++) {
+                if (tabla[numRestricciones][j] > maxValor) {
+                    maxValor = tabla[numRestricciones][j];
+                    columna = j;
+                }
+            }
+            return columna;
+        }
     }
 }
