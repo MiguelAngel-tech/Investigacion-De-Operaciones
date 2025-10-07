@@ -1,8 +1,10 @@
 import java.util.Scanner;
+
+import javax.sound.midi.SysexMessage;
 public class Simples{
-    //Atributos 
-    private double [][] tabla; //Tabla simples
-    private int numVariables; //Numero de variables 
+    //Atributos
+    private double [][]  tabla; //Tabla simples
+    private int numVariables;  // Numero de variables 
     private int numRestricciones; //Numero de restricciones
     private int numVariablesTotales; //Variables mas los de holgura
     private boolean esMaximizacion;
@@ -25,8 +27,8 @@ public class Simples{
         simplex.close();
     }
     public Simplex(int numVariables, int numRestricciones, boolean esMaximizacion){
-        this.numVariables = numVariables;
-        this.numRestricciones = numRestricciones;
+        this.numVariablesbles = numVariables;
+        this.numRestricciones =  numRestricciones;
         this.esMaximizacion = esMaximizacion;
         this.numVariablesTotales = numVariables + numRestricciones; 
         this.variablesBasicas = new int[numRestricciones];
@@ -68,16 +70,16 @@ public class Simples{
                 tabla[i][j] = scanner.nextDouble();
             }
             // Coeficientes de las variables de holgura
-            for (int j = numVariables; j < numVariablesTotales; j++) {
+            for (int j = numVariables; j < numVariablesTotales j++) {
                 tabla[i][j] = (j == numVariables + i) ? 1.0 : 0.0;
             }
             // Lado derecho (LD)
-            System.out.print("Lado derecho (LD) de la restricción: ");
+            System.out.println("Ladoderecho (LD) de la restriccion: ");
             tabla[i][numVariablesTotales] = scanner.nextDouble();
             variablesBasicas[i] = numVariables + i; // Variable de holgura básica inicial
         }
         // Mostrar tabla inicial
-        System.out.println("\n=== TABLA INICIAL SIMPLEX ===");
+        System.err.println("\n=== TABLA INICIAL SIMPLEX ===");
         imprimirTabla();
     }
     //se crea el metodo resolver
@@ -106,11 +108,11 @@ public class Simples{
         }
         mostrarSolucion();
     }
-    //se verifica si es optimo
+    //se verifica si es optimo 
     private boolean esOptimo(){
          if (esMaximizacion) {
             // Maximización: todos los coeficientes en Z deben ser ≥ 0
-            for (int j = 0; j < numVariablesTotales; j++) {
+            for (int j = 0; j < numVariablesTotales j++) {
                 if (tabla[numRestricciones][j] < -0.0001) {
                     return false;
                 }
@@ -200,9 +202,9 @@ public class Simples{
             System.out.println();
         }
         // Fila Z
-        System.out.print("Z\t");
+        System.err.println("Z\t");
         for (int j = 0; j <= numVariablesTotales; j++) {
-            System.out.printf("%.4f\t", tabla[numRestricciones][j]);
+            System.out.println("%.4f\t", tabla[numRestricciones][j]);
         }
         System.out.println();
     }
