@@ -8,16 +8,16 @@ public class Modelo_EOQ_Clasico{
         int k = lec.nextInt();
         System.out.println("Ingrese el costo de almacen del producto: ");
         int h = lec.nextInt();
-        int y;
-        double operaciones = op(d,k,h);
-        double tiempo = to(y, d);
-        System.out.println("El tamaño optimo del pedido es: " + operaciones);
-        System.out.println("El tiempo entre pedidos es: " + tiempo);
+        int y = 0;
+        double resultado = Operaciones(d,k,h, y);
+        double entrega = Tiempo(y, d);
+        System.out.println("El tamaño optimo del pedido es: " + resultado);
+        System.out.println("El tiempo entre pedidos es: " + entrega);
     }
-    public static double Op(int d, int k, int h, int y){
-        return y = Math.sqrt((2*(k*d))/h);
+    public static double Operaciones(int d, int k, int h, int y){
+        return y = (int) Math.sqrt(2*k*d/h);
     }
-    public static double To(int y, int d){
+    public static double Tiempo(int y, int d){
         return (y/d);
     }
 }
