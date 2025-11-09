@@ -4,19 +4,19 @@ public class Modelo_EOQ_Clasico{
         Scanner lec = new Scanner(System.in);
         System.out.println("");
         System.out.println("Ingrese la demanda del producto: ");
-        double d = lec.nextDouble();
+        int d = lec.nextInt();
         System.out.println("Ingrese el costo de la demanda: ");
-        double k = lec.nextDouble();
+        int k = lec.nextInt();
         System.out.println("Ingrese el costo de almacen del producto: ");
-        double h = lec.nextDouble();
+        float h = lec.nextFloat();
         System.out.println("Ingrese el tiempo de entrega: ");
-        double l = lec.nextDouble();
-        double y = 0;
-        float le = 0;
-        double resultado = Operaciones(d,k,h, y);
-        double entrega = Tiempo(resultado, d);
+        int l = lec.nextInt();
+        float y = 0;
+        int le = 0;
+        int resultado = Operaciones(d,k,h, y);
+        float entrega = Tiempo(resultado, d);
         int n = (int)(l/entrega);
-        double ptoReorden = PDR(entrega, l, n, le, d);
+        float ptoReorden = (float) PDR(entrega, l, n, le, d);
         System.out.println();
         System.out.println("El tamaño optimo del pedido es: " + resultado);
         System.out.println("El tiempo entre pedidos es: " + entrega);
@@ -26,13 +26,13 @@ public class Modelo_EOQ_Clasico{
         System.out.println("El punto de reorden es: " + ptoReorden);
 
     }
-    public static double Operaciones(double d, double k, double h, double y){
-        return y = Math.sqrt(2*k*d/h);
+    public static int Operaciones(int d, int k, float h, float y){
+        return (int) (y = (float) Math.sqrt((2*k*d)/h)+1);
     }
-    public static double Tiempo(double y, double d){
-        return (y/d);
+    public static float Tiempo(float resultado, int d){
+        return (resultado/d);
     }
-    public static double PDR(double entrega, double l, int n, double le, double d){
+    public static double PDR(float entrega, int l, int n, float le, int d){
         le = l - (n*entrega);
         return le * d;
     }
