@@ -36,7 +36,7 @@ public class Modelo_EOQ_Clasico{
 
                     break;
                 case 2:
-                    System.out.println("ingrese la demande del producto: ");
+                    System.out.println("ingrese la demanda del producto: ");
                     int d2 = lec.nextInt();
                     System.out.println("Ingrese el costo de la demanda: ");
                     int k2 = lec.nextInt();
@@ -45,19 +45,20 @@ public class Modelo_EOQ_Clasico{
                     System.out.println("Ingrese la cantidad de costos unitarios: ");
                     int cantidad = lec.nextInt();
                     int c = 0;
+                    float h2 = 0;
                     for(byte j = 0; j<cantidad; j++){
-                        System.out.println("Ingrese el costo unitario "+ (j+1) + " es: ");
+                        System.out.println("");
+                        System.out.print("Ingrese el costo unitario "+ (j+1) + " es: ");
                         c = lec.nextInt();
+                        h2 = (int)(c*i);
+                        System.out.print("El costo de almacen " + (j+1) + " es: " + h2);
                     }
-                    for(byte j = 0; j<cantidad; j++){
-                        System.out.println("El costo de almacen con descueto " + (j+1) + " es:" + (c * i));
-                    }
+
                     break;
                 case 3: 
                     System.out.println("Gracias por usar el programa, vuelva pronto. :)");
             }
         }while(opcion != 3);
-
     }
     public static int Operaciones(int d, int k, float h, float y){
         return (int) (y = (float) Math.sqrt((2*k*d)/h)+1);
