@@ -7,7 +7,7 @@ public class Modelo_EOQ_Clasico{
         do{
             System.out.println("\n \n \t \tMenu");
             System.out.println("1: Modelo EOQ clasico");
-            System.out.println("2: Incentario con descuento");
+            System.out.println("2: Inventario con descuento");
             System.out.println("3: Salir");
             opcion = lec.nextByte();
             switch (opcion){
@@ -41,7 +41,7 @@ public class Modelo_EOQ_Clasico{
                     System.out.println("Ingrese el costo de la demanda: ");
                     int k2 = lec.nextInt();
                     System.out.println("Ingrese el porcentaje de descuento:");
-                    float i = lec.nextFloat();
+                    int i = lec.nextInt();
                     System.out.println("Ingrese la cantidad de costos unitarios: ");
                     int cantidad = lec.nextInt();
                     int c = 0;
@@ -50,7 +50,7 @@ public class Modelo_EOQ_Clasico{
                         System.out.println("");
                         System.out.print("Ingrese el costo unitario "+ (j+1) + " es: ");
                         c = lec.nextInt();
-                        h2 = (int)(c*i);
+                        h2 = (c*i)/100f;
                         System.out.print("El costo de almacen " + (j+1) + " es: " + h2);
                     }
 
