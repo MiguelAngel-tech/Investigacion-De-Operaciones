@@ -3,12 +3,13 @@ public class Modelo_EOQ_Clasico{
     public static void main(String []args){
         Scanner lec = new Scanner(System.in);
         System.out.println("\n \n \t \tMODELO EOQ CLASICO");
+        byte opcion = 0;
         do{
             System.out.println("\n \n \t \tMenu");
             System.out.println("1: Modelo EOQ clasico");
             System.out.println("2: Incentario con descuento");
             System.out.println("3: Salir");
-            byte opcion = lec.nextByte();
+            opcion = lec.nextByte();
             switch (opcion){
                 case 1:
                     System.out.println("Ingrese la demanda del producto: ");
@@ -36,10 +37,10 @@ public class Modelo_EOQ_Clasico{
                     break;
                 case 2:
                     break;
-                    default:
+                case 3: 
                     System.out.println("Gracias por usar el programa, vuelva pronto. :)");
             }
-        }while(opcion!=4);
+        }while(opcion != 3);
 
     }
     public static int Operaciones(int d, int k, float h, float y){
