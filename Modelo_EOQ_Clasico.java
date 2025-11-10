@@ -36,6 +36,22 @@ public class Modelo_EOQ_Clasico{
 
                     break;
                 case 2:
+                    System.out.println("ingrese la demande del producto: ");
+                    int d2 = lec.nextInt();
+                    System.out.println("Ingrese el costo de la demanda: ");
+                    int k2 = lec.nextInt();
+                    System.out.println("Ingrese el porcentaje de descuento:");
+                    float i = lec.nextFloat();
+                    System.out.println("Ingrese la cantidad de costos unitarios: ");
+                    int cantidad = lec.nextInt();
+                    int c = 0;
+                    for(byte j = 0; j<cantidad; j++){
+                        System.out.println("Ingrese el costo unitario "+ (j+1) + " es: ");
+                        c = lec.nextInt();
+                    }
+                    for(byte j = 0; j<cantidad; j++){
+                        System.out.println("El costo de almacen con descueto " + (j+1) + " es:" + (c * i));
+                    }
                     break;
                 case 3: 
                     System.out.println("Gracias por usar el programa, vuelva pronto. :)");
