@@ -46,17 +46,23 @@ public class Modelo_EOQ_Clasico{
                     int cantidad = lec.nextInt();
                     int c = 0;
                     float h2 = 0;
+                    
                     for(byte j = 0; j<cantidad; j++){
                         System.out.println("");
                         System.out.print("Ingrese el costo unitario "+ (j+1) + " es: ");
                         c = lec.nextInt();
                         h2 = (c*i)/100f;
                         System.out.print("El costo de almacen " + (j+1) + " es: " + h2);
+                        System.out.println("");
+                        //calacular el tamaño optimo del pedido de cada costo unitario
+                        int resultado2 = (int) Math.sqrt((2*k2*d2)/(h2 = (c*i)/100f));
+                        System.out.print("El tamaño optimo del pedido "+ (j+1) + " es: " + resultado2);
+                        System.out.println("");
                     }
-
+                    
                     break;
                 case 3: 
-                    System.out.println("Gracias por usar el programa, vuelva pronto. :)");
+                    System.out.println("Gracias por usar el programa, vuelva pronto :)");
             }
         }while(opcion != 3);
     }
