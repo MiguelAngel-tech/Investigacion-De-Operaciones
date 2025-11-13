@@ -42,11 +42,11 @@ public class Modelo_EOQ_Clasico{
                     int k2 = lec.nextInt();
                     System.out.println("Ingrese el porcentaje de descuento:");
                     int i = lec.nextInt();
+                    System.out.println("");
                     System.out.println("Ingrese la cantidad de costos unitarios: ");
                     int cantidad = lec.nextInt();
                     int c = 0;
                     float h2 = 0;
-                    
                     for(byte j = 0; j<cantidad; j++){
                         System.out.println("");
                         System.out.print("Ingrese el costo unitario "+ (j+1) + " es: ");
@@ -58,8 +58,11 @@ public class Modelo_EOQ_Clasico{
                         int resultado2 = (int) Math.sqrt((2*k2*d2)/(h2 = (c*i)/100f));
                         System.out.print("El tamaño optimo del pedido "+ (j+1) + " es: " + resultado2);
                         System.out.println("");
+                        //calcular el Costo Total Unitario
+                        double CTU = (d2*c) + (d2*k2/(double)resultado2) + (h2*resultado2/2.0);
+                        System.out.println("El costo total unitario " + (j+1) + " es: " + CTU);
+                        System.out.println("");
                     }
-                    
                     break;
                 case 3: 
                     System.out.println("Gracias por usar el programa, vuelva pronto :)");
