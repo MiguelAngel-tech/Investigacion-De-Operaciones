@@ -19,7 +19,7 @@ public class Teoria_de_colas {
                     int miu = lec.nextInt();
                     //utilizacion del sistema
                     float promedio = utilizacionDeSistema(lambda, miu);
-                    System.out.println("La utilizacion del sistema es del: " + promedio + " %");
+                    System.out.println("La utilizacion del sistema es del: " + promedio + "%");
                     break;
                 case 2:
                     //medelo m/m/1/k
@@ -38,8 +38,11 @@ public class Teoria_de_colas {
         }while(opcion != 4);
     } //main
     public static float utilizacionDeSistema(int lambda, int miu){
-        float utilizacion = 0;
-        utilizacion = (float)(lambda) / (float)(miu);
-        return utilizacion * 100f;
+        if (miu == 0) {
+            throw new IllegalArgumentException("La tasa de servicio (μ) no puede ser 0.");
+        }
+        // Evitar división entera: castear a float antes de dividir.
+        // Devolvemos porcentaje (0-100) en lugar de fracción (0-1).
+        return ((float) lambda / (float) miu) * 100f;
     }
 }//public class

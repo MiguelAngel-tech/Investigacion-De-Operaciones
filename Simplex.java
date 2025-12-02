@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 import javax.sound.midi.SysexMessage;
-public class Simples{
+public class Simplex{
     //Atributos
     private double [][]  tabla; //Tabla simples
     private int numVariables;  // Numero de variables 
