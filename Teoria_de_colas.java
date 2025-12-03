@@ -32,7 +32,13 @@ public class Teoria_de_colas {
                     break;
                 case 2:
                     //medelo m/m/1/k
-                    System.out.println("");
+                    System.out.println("Ingrese la cantidad de servicios o servidores: ");
+                    int c = lec.nextInt();
+                    System.out.println("Ingrese la taza de llegada: ");
+                    int lambda2 = lec.nextInt();
+                    System.out.println("Ingrese la taza de atención al cliente: ");
+                    int miu2 = lec.nextInt();
+
                     break;
                 case 3:
                     //modelo m/m/3
@@ -64,5 +70,10 @@ public class Teoria_de_colas {
         float wq = 0;
         wq = lq / lambda;
         return wq * 60f;//pasarlo a minutos
+    }
+    public static float erlang(int lamnda2, int miu1){
+        float a = 0;
+        a = (float)(lamnda2)/ (float) miu2;
+        return a;
     }
 }//public class
