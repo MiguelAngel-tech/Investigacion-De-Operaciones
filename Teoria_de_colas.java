@@ -29,7 +29,6 @@ public class Teoria_de_colas {
                     //tiempo total en el sistema
                     float tiempoTotal = promedioDeEspera + (1f/miu) * 60f;
                     System.out.println("El tiempo total en el sistema es de: " + tiempoTotal + " minutos ó " + (tiempoTotal/60f) + " horas");
-
                     break;
                 case 2:
                     //medelo m/m/1/k
@@ -39,6 +38,9 @@ public class Teoria_de_colas {
                     break;
                 case 4:
                     //salir del programa
+                    for(int i = 5; i >= 0; i--){
+                        System.out.println(i);
+                    } 
                     break;
                     default:
                         System.out.println("Opcion invalida."); 
