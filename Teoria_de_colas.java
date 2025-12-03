@@ -40,7 +40,7 @@ public class Teoria_de_colas {
                 case 4:
                     //salir del programa
                     for(int i = 5; i >= 0; i--){
-                        System.out.println(i);
+                        System.out.print(i);
                     } 
                     break;
                     default:
