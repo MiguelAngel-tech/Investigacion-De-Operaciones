@@ -32,6 +32,7 @@ public class Teoria_de_colas {
                     break;
                 case 2:
                     //medelo m/m/1/k
+                    System.out.println("");
                     break;
                 case 3:
                     //modelo m/m/3

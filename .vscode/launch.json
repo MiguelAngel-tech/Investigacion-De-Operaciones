@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "type": "java",
+        "name": "Vogel",
+        "request": "launch",
+        "mainClass": "Vogel",
+        "projectName": "Investigacion-De-Operaciones"
+    },
+    {
+        "type": "java",
+        "name": "Launch Teoria_de_colas",
+        "request": "launch",
+        "mainClass": "Teoria_de_colas",
+        "classPaths": [
+            "${workspaceFolder}"
+        ],
+        "cwd": "${workspaceFolder}"
+    }
+]
+}
