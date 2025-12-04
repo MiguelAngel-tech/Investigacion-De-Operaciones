@@ -7,7 +7,7 @@ public class Teoria_de_colas {
             System.out.println("\n \n \t--Menu de teoria de colas--");
             System.out.println("1. Modelo M/M/1.");
             System.out.println("2. Modelo M/M/1/k.");
-            System.out.println("3. Modelo M/M/3.");
+            System.out.println("3. Modelo M/M/c.");
             System.out.println("4. Salir.");
             opcion = lec.nextByte();
             switch(opcion){
@@ -32,16 +32,34 @@ public class Teoria_de_colas {
                     break;
                 case 2:
                     //medelo m/m/1/k
-                    System.out.println("Ingrese la cantidad de servicios o servidores: ");
-                    int c = lec.nextInt();
-                    System.out.println("Ingrese la taza de llegada: ");
+                    System.out.println("Ingrese la tasa de llegada o pedidos: ");
+                    int pedidos = lec.nextInt();
+                    System.out.println("Ingrese el horario de atencion: ");
+                    int hora = lec.nextInt();
+                    float miu2 = (float)(pedidos)/(float)(hora);
+                    System.out.println("Ingrese la tasa de llegada: ");
                     int lambda2 = lec.nextInt();
-                    System.out.println("Ingrese la taza de atención al cliente: ");
-                    int miu2 = lec.nextInt();
-
+                    System.out.println("ingrese la capacidad maxima del sistema: ");
+                    int k = lec.nextInt();
+                    float utilizacion = lambda2 / miu2;
+                    System.out.println("Utilizacion del sistema: " + rho);
+                    float p0 = (1-utilizacion)/(1-(Math.pow(utilizacion, k+1)));
+                    System.out.println("Probabilidad de 0 clientes en el sistema: " + (p0 * 100f));
+                    //probabilidad de rechazo
+                    float pk = Math.pow(utilizacion, k) * (p0);
+                    System.out.println("La probabilidad de rechazo es de: " + (pk * 100f));
+                    //tasa de llegada
+                    float tasaLlegada = (lambda2 * 1)-pk;
+                    System.out.println("La tasa de llegada es: " + tasaLlegada);
+                    //longitud promedio de la cola
+                    float l = (utilizacion(1-(k+1) * (Math.pow(utilizacion, k)) + k * (Math.pow(utilizacion, k+1)))/(1-utilizacion)*(1-(Math.pow(utilizacion, k + 1))));
+                    System.out.println("La longitud promedio de la cola es de: " + l);
+                    //tiempo promedio del sistema
+                    float w = l/tasaLlegada;
+                    System.out.println("El tiempo promedio del sistema es: " + w);
                     break;
                 case 3:
-                    //modelo m/m/3
+                    //modelo m/m/c
                     break;
                 case 4:
                     //salir del programa
