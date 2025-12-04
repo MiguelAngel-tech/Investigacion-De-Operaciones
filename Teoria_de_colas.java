@@ -57,6 +57,7 @@ public class Teoria_de_colas {
                     //tiempo promedio del sistema
                     float w = l/tasaLlegada;
                     System.out.println("El tiempo promedio del sistema es: " + w);
+                    break;
                 case 3:
                     //modelo m/m/c
                     System.out.println("Ingrese el numero de servidores: ");
