@@ -60,11 +60,11 @@ public class Teoria_de_colas {
                     break;
                 case 3:
                     //modelo m/m/c
-                    System.out.println("Ingrese el numero de servidores: ");
+                    System.out.println("Ingrese el numero de servidores (c): ");
                     int c = lec.nextInt();
-                    System.out.println("Ingrese la tasa de llegada: ");
+                    System.out.println("Ingrese la tasa de llegada (λ): ");
                     float lambda3 = lec.nextFloat();
-                    System.out.println("Ingrese la tasa de servicio por servidor: ");
+                    System.out.println("Ingrese la tasa de servicio por servidor (μ): ");
                     float miu3 = lec.nextFloat();
                     //metodo para mmc
                     modeloMMC(c,lambda3,miu3);
