@@ -59,11 +59,11 @@ public class Teoria_de_colas {
                     System.out.println("El tiempo promedio del sistema es: " + w);
                 case 3:
                     //modelo m/m/c
-                    System.out.printnln("Ingrese el numero de servidores: ");
+                    System.out.println("Ingrese el numero de servidores: ");
                     int c = lec.nextInt();
-                    System.out.printnln("Ingrese la tasa de llegada: ");
+                    System.out.println("Ingrese la tasa de llegada: ");
                     float lambda3 = lec.nextFloat();
-                    System.out.printnln("Ingrese la tasa de servicio por servidor: ");
+                    System.out.println("Ingrese la tasa de servicio por servidor: ");
                     float miu3 = lec.nextFloat();
                     //metodo para mmc
                     modeloMMC(c,lambda3,miu3);
@@ -93,7 +93,7 @@ public class Teoria_de_colas {
         wq = lq / lambda;
         return wq * 60f;//pasarlo a minutos
     }
-    public static float erlang(int lamnda2, int miu1){
+    public static float erlang(int lamnda2, int miu2){
         float a = 0;
         a = (float)(lamnda2)/ (float) miu2;
         return a;
@@ -108,8 +108,8 @@ public class Teoria_de_colas {
     public static void modeloMMC(int c, float lambda3, float miu3){
         float rho = lambda3 / (c * miu3);
         float a = lambda3 / miu3;
-        System.out.printnln("La carga total por servidor es de: " + a);
-        System.out.printnln("La utilizacion por servidor es de: " + (rho * 100) + " %");
+        System.out.println("La carga total por servidor es de: " + a);
+        System.out.println("La utilizacion por servidor es de: " + (rho * 100) + " %");
         //probabilidad de 0 clientes 
         float sumatoria = 0;
         for(int n = 0; n < c; n++){
@@ -117,21 +117,21 @@ public class Teoria_de_colas {
         }
         sumatoria += Math.pow(a,c) / (factorial(c) * (1 - rho));
         float p0 = 1 / sumatoria;
-        System.out.printnln("La probabilidad de 0 clientes en el sistema es de: " + (p0 * 100) + " %");
+        System.out.println("La probabilidad de 0 clientes en el sistema es de: " + (p0 * 100) + " %");
         //P_espera
         float P_espera = (float)(Math.pow(a,c) * p0 / (factorial(c) * (1 - rho)));
-        System.out.printnln("La probabilidad de espera es de: " + (P_espera * 100) + " %");
+        System.out.println("La probabilidad de espera es de: " + (P_espera * 100) + " %");
         //promedio en la cola
         float lq = (P_espera * rho) / (1 - rho);
         System.out.println("Promedio en la cola: " + lq + " clientes");
         //tiempo de espera
         float wq = lq / lambda3 * 60;
-        System.out.printnln("Tiempo promedio de espera en la cola: " + wq + " min");
+        System.out.println("Tiempo promedio de espera en la cola: " + wq + " min");
         //longitud de la cola
         float l2 = lq + a;
         System.out.println("La longitud de la cola es de: " + l2 + " clientes");
         //tiempo promedio en el sistema
         float w2 = wq + (1 / miu3) * 60;
-        System.out.printnln("Tiempo total en el sistema: "+ w2 + " min");   
+        System.out.println("Tiempo total en el sistema: "+ w2 + " min");   
     }
 }//public class
