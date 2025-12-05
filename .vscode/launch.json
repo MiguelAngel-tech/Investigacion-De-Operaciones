@@ -3,6 +3,13 @@
   "configurations": [
     {
         "type": "java",
+        "name": "Modelo_EOQ_Clasico",
+        "request": "launch",
+        "mainClass": "Modelo_EOQ_Clasico",
+        "projectName": "Investigacion-De-Operaciones"
+    },
+    {
+        "type": "java",
         "name": "Vogel",
         "request": "launch",
         "mainClass": "Vogel",
